@@ -54,10 +54,10 @@ if (isset($_POST['number'])) {
 				</ul>
 			</dd>
 		</dl>
-		<form class="gameInterface" action="/" method="post">
-			<dl>
+		<form id="gameInterface" class="gameInterface" action="/" method="post">
+			<dl id="ruleList">
 				<dt>The number:</dt>
-				<dd class="numberField"><input type="number" name="number" value="<?php echo $providedNumber; ?>"/></dd>
+				<dd class="numberField"><input id="numberFieldInput" type="number" name="number" value="<?php echo $providedNumber; ?>"/></dd>
 				<dt>The rules:</dt>
 				<?php foreach ($rules as $multiple => $substitution) { ?>
 				<dd class="ruleField">Multiples of <input type="number" name="multiples[]"  value="<?php echo $multiple; ?>" /> will return <input type="text" name="substitutions[]" value="<?php echo $substitution; ?>" /><span class="add">+</span><span class="remove">-</span></dd>
