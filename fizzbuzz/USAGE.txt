@@ -1,0 +1,1 @@
+To use, clone or download this repository onto a machine that has PHP installed. Navigate to the repository folder in your choice of command line interface and run `php -S localhost:8080 -t fizzbuzz/` then enter http://localhost:8080 in your web browser.
