@@ -14,7 +14,7 @@ if (isset($_POST['multiples']) && isset($_POST['substitutions'])) {
 		if (empty($multiple) || empty($_POST['substitutions'][$index])) { continue; }
 		$rules[$multiple] = $_POST['substitutions'][$index];
 	}
-	
+
 }
 
 if (isset($_POST['number'])) {
@@ -39,6 +39,7 @@ if (isset($_POST['number'])) {
 <head>
 	<meta charset="UTF-8">
 	<title>Fizz Buzz Kata</title>
+	<link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
 	<h1>Fizz Buzz Kata</h1>
@@ -58,12 +59,13 @@ if (isset($_POST['number'])) {
 			<dd><input type="number" name="number" value="<?php echo $providedNumber; ?>"/></dd>
 			<dt>The rules:</dt>
 			<?php foreach ($rules as $multiple => $substitution) { ?>
-			<dd>Multiples of <input type="number" name="multiples[]"  value="<?php echo $multiple; ?>" /> will return <input type="text" name="substitutions[]" value="<?php echo $substitution; ?>" /></dd>
+			<dd>Multiples of <input type="number" name="multiples[]"  value="<?php echo $multiple; ?>" /> will return <input type="text" name="substitutions[]" value="<?php echo $substitution; ?>" /><span class="add">+</span><span class="remove">-</span></dd>
 			<?php } ?>
 		<button type="submit">Submit</button>
 	</form>
 	<div class="output-container">
 		<?php echo $phrase; ?>
 	</div>
+	<script type="text/javascript" src="/assets/js/main.js"></script>
 </body>
 </html>
