@@ -32,6 +32,14 @@ if (isset($_POST['number'])) {
 		$phrase = implode(" ", $alteredPhrase);
 	}
 }
+
+if ($rules == array()) {
+	//If the user gives us a rule-less set, we tell the output that it's a void set for display purposes
+	$voidSet = true;
+	$rules = array(
+		'' => ''
+	);
+}
 ?>
 
 <!DOCTYPE html>
@@ -48,9 +56,13 @@ if (isset($_POST['number'])) {
 			<dt>The rules</dt>
 			<dd>
 				<ul>
-					<?php foreach ($rules as $multiple => $substitution) { ?>
-					<li>Multiple of <?php echo $multiple; ?> will return '<?php echo $substitution;?>'</li>
-					<?php } ?>
+					<?php 
+					if (!isset($voidSet)) {
+						foreach ($rules as $multiple => $substitution) { ?>
+							<li>Multiple of <?php echo $multiple; ?> will return '<?php echo $substitution;?>'</li>
+					<?php
+						}
+					} ?>
 				</ul>
 			</dd>
 		</dl>
