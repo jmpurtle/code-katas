@@ -2,7 +2,8 @@
 $phrase = "Please enter a number.";
 $rules = array(
 	3 => 'fizz',
-	5 => 'buzz'
+	5 => 'buzz',
+	7 => 'pop'
 );
 
 if (isset($_POST['number'])) {
@@ -35,6 +36,7 @@ if (isset($_POST['number'])) {
 			<ul>
 				<li>Multiple of 3 will return 'fizz'</li>
 				<li>Multiple of 5 will return 'buzz'</li>
+				<li>Multiple of 7 will return 'pop'</li>
 			</ul>
 		</dd>
 	</dl>
