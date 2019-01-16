@@ -11,11 +11,10 @@ $rules = array(
 if (isset($_POST['multiples']) && isset($_POST['substitutions'])) {
 	$rules = array();
 	foreach ($_POST['multiples'] as $index => $multiple) {
-		if (empty($multiple)) { continue; }
+		if (empty($multiple) || empty($_POST['substitutions'][$index])) { continue; }
 		$rules[$multiple] = $_POST['substitutions'][$index];
 	}
-
-	echo var_export($rules, true);
+	
 }
 
 if (isset($_POST['number'])) {
