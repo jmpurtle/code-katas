@@ -42,29 +42,32 @@ if (isset($_POST['number'])) {
 	<link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
-	<h1>Fizz Buzz Kata</h1>
-	<dl>
-		<dt>The rules</dt>
-		<dd>
-			<ul>
+	<div class="gameContainer">
+		<h1>Fizz Buzz Kata</h1>
+		<dl class="ruleset">
+			<dt>The rules</dt>
+			<dd>
+				<ul>
+					<?php foreach ($rules as $multiple => $substitution) { ?>
+					<li>Multiple of <?php echo $multiple; ?> will return '<?php echo $substitution;?>'</li>
+					<?php } ?>
+				</ul>
+			</dd>
+		</dl>
+		<form class="gameInterface" action="/" method="post">
+			<dl>
+				<dt>The number:</dt>
+				<dd class="numberField"><input type="number" name="number" value="<?php echo $providedNumber; ?>"/></dd>
+				<dt>The rules:</dt>
 				<?php foreach ($rules as $multiple => $substitution) { ?>
-				<li>Multiple of <?php echo $multiple; ?> will return '<?php echo $substitution;?>'</li>
+				<dd class="ruleField">Multiples of <input type="number" name="multiples[]"  value="<?php echo $multiple; ?>" /> will return <input type="text" name="substitutions[]" value="<?php echo $substitution; ?>" /><span class="add">+</span><span class="remove">-</span></dd>
 				<?php } ?>
-			</ul>
-		</dd>
-	</dl>
-	<form action="/" method="post">
-		<dl>
-			<dt>The number:</dt>
-			<dd><input type="number" name="number" value="<?php echo $providedNumber; ?>"/></dd>
-			<dt>The rules:</dt>
-			<?php foreach ($rules as $multiple => $substitution) { ?>
-			<dd>Multiples of <input type="number" name="multiples[]"  value="<?php echo $multiple; ?>" /> will return <input type="text" name="substitutions[]" value="<?php echo $substitution; ?>" /><span class="add">+</span><span class="remove">-</span></dd>
-			<?php } ?>
-		<button type="submit">Submit</button>
-	</form>
-	<div class="output-container">
-		<?php echo $phrase; ?>
+			</dl>
+			<button class="formSubmit" type="submit">Submit</button>
+		</form>
+		<div class="outputContainer">
+			<?php echo $phrase; ?>
+		</div>
 	</div>
 	<script type="text/javascript" src="/assets/js/main.js"></script>
 </body>
