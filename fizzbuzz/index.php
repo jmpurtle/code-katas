@@ -1,10 +1,12 @@
 <?php
 $phrase = "Please enter a number.";
-$rules = array(
-	3 => 'fizz',
-	5 => 'buzz',
-	7 => 'pop'
-);
+
+$rules = array();
+if (isset($_POST['multiples']) && isset($_POST['substitutions'])) {
+	foreach ($_POST['multiples'] as $index => $multiple) {
+		$rules[$multiple] = $_POST['substitutions'][$index];
+	}
+}
 
 if (isset($_POST['number'])) {
 	$phrase = $_POST['number'];
@@ -41,7 +43,11 @@ if (isset($_POST['number'])) {
 		</dd>
 	</dl>
 	<form action="/" method="post">
-		<input name="number" />
+		<dl>
+			<dt>The number:</dt>
+			<dd><input type="number" name="number" /></dd>
+			<dt>The rules:</dt>
+			<dd>Multiples of <input type="number" name="multiples[]" /> will return <input type="text" name="substitutions[]" /></dd>
 		<button type="submit">Submit</button>
 	</form>
 	<div class="output-container">
