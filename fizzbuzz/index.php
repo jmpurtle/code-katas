@@ -34,9 +34,9 @@ if (isset($_POST['number'])) {
 		<dt>The rules</dt>
 		<dd>
 			<ul>
-				<li>Multiple of 3 will return 'fizz'</li>
-				<li>Multiple of 5 will return 'buzz'</li>
-				<li>Multiple of 7 will return 'pop'</li>
+				<?php foreach ($rules as $multiple => $substitution) { ?>
+				<li>Multiple of <?php echo $multiple; ?> will return '<?php echo $substitution;?>'</li>
+				<?php } ?>
 			</ul>
 		</dd>
 	</dl>
