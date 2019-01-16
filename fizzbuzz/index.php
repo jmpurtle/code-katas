@@ -1,4 +1,5 @@
 <?php
+
 $phrase = "Please enter a number.";
 $providedNumber = null;
 
@@ -10,8 +11,11 @@ $rules = array(
 if (isset($_POST['multiples']) && isset($_POST['substitutions'])) {
 	$rules = array();
 	foreach ($_POST['multiples'] as $index => $multiple) {
+		if (empty($multiple)) { continue; }
 		$rules[$multiple] = $_POST['substitutions'][$index];
 	}
+
+	echo var_export($rules, true);
 }
 
 if (isset($_POST['number'])) {
